@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">蛙仔举起文件夹魔法杖</title><desc id="desc">Froganize 正在整理的矢量姿态</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="124" cy="229" rx="78" ry="11" fill="#173B79" opacity=".10"/>
+    <path d="M30 106C30 62 56 38 85 38c17 0 23 18 39 18s22-18 39-18c29 0 55 24 55 68v63c0 37-25 58-58 58H88c-33 0-58-21-58-58z" fill="#F7D86A"/>
+    <circle cx="80" cy="78" r="21" fill="#3156A3"/><circle cx="168" cy="78" r="21" fill="#3156A3"/>
+    <rect x="68" y="74" width="24" height="8" rx="4" fill="#F38B72"/><rect x="156" y="74" width="24" height="8" rx="4" fill="#F38B72"/>
+    <circle cx="118" cy="115" r="3" fill="#3156A3"/><circle cx="132" cy="115" r="3" fill="#3156A3"/>
+    <path d="M116 131q10 7 20 0" fill="none" stroke="#3156A3" stroke-width="4"/>
+    <path d="M67 173q11-19 27-5M188 167q13-8 20-25" fill="none" stroke="#F7D86A" stroke-width="18"/>
+    <path d="M70 158h35l8-10h55v52H70z" fill="#3156A3"/><path d="M70 158h98v12H70z" fill="#4E78C7"/>
+    <path d="M202 148L225 84" stroke="#9B6B48" stroke-width="8"/><path d="M207 57h16l6-7h23v28h-45z" fill="#3156A3" transform="rotate(-8 229 64)"/>
+    <path d="M220 40v-13M239 43l9-10M203 45l-9-9" stroke="#F1BD3F" stroke-width="5"/>
+    <ellipse cx="76" cy="226" rx="26" ry="10" fill="#F7D86A"/><ellipse cx="170" cy="226" rx="26" ry="10" fill="#F7D86A"/>
+  </g>
+</svg>

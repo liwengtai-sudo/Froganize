@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Froganize 开发进度与版本变化记录。">
+    <meta name="theme-color" content="#faf7ef">
+    <title>开发进度 · Froganize</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/froganize-mark.svg">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header">
+      <div class="page-width header-inner">
+        <a class="brand" href="./index.html" aria-label="返回 Froganize 官网">
+          <span class="brand-avatar" aria-hidden="true"><img src="./assets/froganize-mascot-128.png" alt="" width="128" height="128"></span>
+          <span class="brand-copy"><strong>Froganize</strong><small>Desktop organizer</small></span>
+        </a>
+        <nav class="site-nav" aria-label="主要导航">
+          <a href="./index.html#transformation">产品</a>
+          <a href="./index.html#workflow">怎么工作</a>
+          <a href="./index.html#safety">安全</a>
+          <a href="./privacy.html">隐私</a>
+        </nav>
+        <span class="local-pill"><i aria-hidden="true"></i>macOS · 本地优先</span>
+        <details class="mobile-nav">
+          <summary aria-label="打开网站导航"><span></span><span></span><span></span></summary>
+          <nav aria-label="移动端导航"><a href="./index.html">返回首页</a><a href="./index.html#workflow">怎么工作</a><a href="./index.html#safety">安全原则</a><a href="./privacy.html">隐私承诺</a></nav>
+        </details>
+      </div>
+    </header>
+
+    <main class="subpage-main page-width" id="main-content">
+      <header class="document-hero">
+        <p class="eyebrow">Build in public, honestly</p>
+        <h1>开发进度</h1>
+        <p>这里记录已经完成的能力和仍在准备的发布工作。Developer Preview 不是已经上线的正式版本。</p>
+      </header>
+
+      <div class="document-layout">
+        <nav class="document-toc" aria-label="页面目录">
+          <strong>本页目录</strong>
+          <a href="#now">现在</a>
+          <a href="#v030">0.3.0</a>
+          <a href="#v020">0.2.0</a>
+          <a href="#v010">0.1.0</a>
+          <a href="#next">下一步</a>
+        </nav>
+
+        <div class="document-content">
+          <section class="document-section" id="now">
+            <h2>现在 · 0.3 Unified Prototype</h2>
+            <div class="document-callout">本机功能与界面已经可运行；公开安装包尚未完成签名、公证和另一台 Mac 的安装验证。</div>
+            <h3>已经完成</h3>
+            <ul>
+              <li>桌面最外层评估，以及最近使用、建议收起、无法安全判断三种结果。</li>
+              <li>默认不勾选、确认后移动、整文件夹处理和月度 Timeline。</li>
+              <li>同名不覆盖、操作历史和最近一次整理撤销。</li>
+              <li>可主动开启的截图智能、确定性安全改名和改名撤销。</li>
+              <li>主窗口、文件操作 helper 与菜单栏 Agent 组成的统一本地应用包。</li>
+              <li>原生 macOS 窗口、兼容网页界面和自动化安全测试。</li>
+            </ul>
+            <h3>仍在准备</h3>
+            <ul>
+              <li>Developer ID 签名与 Apple 公证。</li>
+              <li>另一台 Mac 的全新安装验证。</li>
+              <li>真实且稳定的官网、GitHub 与下载地址。</li>
+            </ul>
+          </section>
+
+          <section class="document-section" id="v030">
+            <div class="version-entry">
+              <h3>0.3.0</h3>
+              <span class="version-meta">2026-08-12 · 统一本地原型</span>
+              <ul>
+                <li>把 Swift 截图理解能力整合为 Froganize Screenshot Intelligence。</li>
+                <li>通过版本化 JSON 合同把改名、历史与撤销交给 Python 安全 helper。</li>
+                <li>截图上传默认关闭，只有明确开启后才使用用户选择的 Provider。</li>
+                <li>新增主窗口截图状态页和包含三个组件的统一本地应用包。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="document-section" id="v020">
+            <div class="version-entry">
+              <h3>0.2.0</h3>
+              <span class="version-meta">2026-07-29 · 本地开发预览</span>
+              <ul>
+                <li>新增本地桌面评估面板、显式选择和二次确认。</li>
+                <li>文件夹按最新后代修改时间评估，但移动时始终保持完整。</li>
+                <li>新增计划快照与变更检测，防止评估后文件变化造成误移动。</li>
+                <li>新增 Finder 打开、批次历史、最近批次撤销和完整边界校验。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="document-section" id="v010">
+            <div class="version-entry">
+              <h3>0.1.0</h3>
+              <span class="version-meta">2026-07-19 · 初始 MVP 基线</span>
+              <ul>
+                <li>建立 Python 包与 <code>dropnest</code> 命令行入口。</li>
+                <li>完成安全工作区初始化、Inbox 预览与月度整理。</li>
+                <li>完成冲突安全移动、JSONL 历史、状态与撤销。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="document-section" id="next">
+            <h2>下一步</h2>
+            <p>优先完成公开分发所需的签名、公证与干净机器验收，再确定域名和公开仓库地址。不会为了让按钮更早可点而跳过 macOS 安全验证。</p>
+            <a class="document-back" href="./index.html#release">← 返回开发预览</a>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-width footer-bottom"><span>Froganize · DropNest project</span><a href="./privacy.html">隐私承诺 →</a></div>
+    </footer>
+  </body>
+</html>

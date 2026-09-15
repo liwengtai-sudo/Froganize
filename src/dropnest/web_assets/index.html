@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dropnest-token" content="__DROPNEST_TOKEN__">
+    <meta
+      name="description"
+      content="Froganize 在本机评估桌面项目，并把你选择的内容安全归档到时间线。"
+    >
+    <title>Froganize · 桌面整理助手</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="ambient ambient-yellow"></div>
+    <div class="ambient ambient-blue"></div>
+
+    <header class="topbar page-width">
+      <a class="brand" href="/" aria-label="Froganize 首页">
+        <span class="brand-avatar" aria-hidden="true">
+          <img src="/froganize-mascot.png" alt="">
+        </span>
+        <span class="brand-copy">
+          <strong>Froganize</strong>
+          <small>Desktop organizer</small>
+        </span>
+      </a>
+      <div class="health-pill" id="health-pill" data-state="loading">
+        <span class="health-dot" aria-hidden="true"></span>
+        <span id="health-label">正在连接本机服务</span>
+      </div>
+    </header>
+
+    <main class="page-width">
+      <section class="hero">
+        <div class="hero-copy-block">
+          <p class="eyebrow">你的桌面整理搭档</p>
+          <h1>让杂乱文件，<br><span>跳进对应月份。</span></h1>
+          <p class="hero-copy">
+            Froganize 只查看桌面最外层。超过 7 个完整日没有修改的安全项目
+            会进入“建议收起”，由你选择后才会移动。
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="assess" type="button">
+              检查桌面
+            </button>
+            <button class="button button-secondary" id="open-desktop" type="button">
+              打开桌面
+            </button>
+            <button class="button button-secondary" id="open-timeline" type="button">
+              打开月度存档
+            </button>
+          </div>
+          <div class="safety-notes" aria-label="安全原则">
+            <span><i aria-hidden="true">✓</i> 只看最外层</span>
+            <span><i aria-hidden="true">✓</i> 移动前确认</span>
+            <span><i aria-hidden="true">✓</i> 最近整理可撤销</span>
+          </div>
+        </div>
+
+        <div class="mascot-stage" aria-label="Froganize 吉祥物">
+          <span class="mascot-orbit orbit-one" aria-hidden="true"></span>
+          <span class="mascot-orbit orbit-two" aria-hidden="true"></span>
+          <div class="mascot-message">
+            <span aria-hidden="true"></span>
+            <p>桌面先由你看清，<br>再由我安全收好。</p>
+          </div>
+          <img
+            class="hero-mascot"
+            src="/froganize-mascot.png"
+            alt="捧着文件夹的黄色 Froganize 青蛙"
+          >
+        </div>
+      </section>
+
+      <section class="scope-card" aria-label="当前整理范围">
+        <div class="scope-heading">
+          <span class="scope-icon" aria-hidden="true">⌂</span>
+          <div>
+            <p class="card-kicker">本次整理范围</p>
+            <strong>桌面 → 月度存档</strong>
+          </div>
+        </div>
+        <div class="scope-location">
+          <span class="scope-label">来源</span>
+          <strong class="scope-path" id="desktop-path">正在读取…</strong>
+        </div>
+        <span class="scope-arrow" aria-hidden="true">→</span>
+        <div class="scope-location">
+          <span class="scope-label">存档位置</span>
+          <strong class="scope-path" id="timeline-path">正在读取…</strong>
+        </div>
+        <details class="scope-diagnostics">
+          <summary>诊断</summary>
+          <div class="scope-health">
+            <span>配置 <strong id="config-health">—</strong></span>
+            <span>历史 <strong id="history-health">—</strong></span>
+          </div>
+        </details>
+      </section>
+
+      <section class="overview" aria-label="桌面评估摘要">
+        <article class="metric-card recent">
+          <div class="metric-topline">
+            <span class="metric-index">01</span>
+            <span class="metric-state" aria-hidden="true"></span>
+          </div>
+          <strong class="metric-value" id="metric-recent">—</strong>
+          <span class="metric-label">留在桌面</span>
+          <span class="metric-note">最近 7 天修改过</span>
+        </article>
+        <article class="metric-card archive">
+          <div class="metric-topline">
+            <span class="metric-index">02</span>
+            <span class="metric-state" aria-hidden="true"></span>
+          </div>
+          <strong class="metric-value" id="metric-archive">—</strong>
+          <span class="metric-label">建议收起</span>
+          <span class="metric-note">超过一周未修改，等待你选择</span>
+        </article>
+        <article class="metric-card unsafe">
+          <div class="metric-topline">
+            <span class="metric-index">03</span>
+            <span class="metric-state" aria-hidden="true"></span>
+          </div>
+          <strong class="metric-value" id="metric-unsafe">—</strong>
+          <span class="metric-label">暂不处理</span>
+          <span class="metric-note">无法安全判断，保留并报告</span>
+        </article>
+      </section>
+
+      <section class="assessment-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">桌面最外层</p>
+            <h2>选择这次要收起的内容</h2>
+          </div>
+          <p class="assessment-time" id="assessment-time">正在自动评估…</p>
+        </div>
+
+        <div class="loading-state" id="loading-state">
+          <img src="/froganize-mascot.png" alt="" aria-hidden="true">
+          <div>
+            <strong>Froganize 正在检查桌面</strong>
+            <p>只读取名称和修改时间，不读取文件内容。</p>
+          </div>
+          <span class="spinner" aria-hidden="true"></span>
+        </div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <img src="/froganize-mascot.png" alt="" aria-hidden="true">
+          <div>
+            <strong>桌面已经很干净</strong>
+            <p>没有发现需要评估的顶层文件或文件夹。</p>
+          </div>
+        </div>
+
+        <div class="groups" id="groups" hidden>
+          <section class="group-card" data-group="recent">
+            <header class="group-heading">
+              <div>
+                <span class="group-badge recent">01</span>
+                <div>
+                  <h3>留在桌面</h3>
+                  <p>最近 7 天修改过，默认不选择；需要时仍可手动收起。</p>
+                </div>
+              </div>
+              <button class="text-button group-select" type="button" data-group="recent">
+                全选本组
+              </button>
+            </header>
+            <div class="item-list" id="group-recent"></div>
+          </section>
+
+          <section class="group-card recommended" data-group="archive">
+            <header class="group-heading">
+              <div>
+                <span class="group-badge archive">02</span>
+                <div>
+                  <h3>建议收起</h3>
+                  <p>超过 7 个完整日未修改，默认不选择，由你决定。</p>
+                </div>
+              </div>
+              <button class="text-button group-select" type="button" data-group="archive">
+                全选本组
+              </button>
+            </header>
+            <div class="item-list" id="group-archive"></div>
+          </section>
+
+          <section class="group-card unsafe-group" data-group="unsafe">
+            <header class="group-heading">
+              <div>
+                <span class="group-badge unsafe">03</span>
+                <div>
+                  <h3>暂不处理</h3>
+                  <p>不能勾选；项目会留在桌面，并显示具体原因。</p>
+                </div>
+              </div>
+            </header>
+            <div class="item-list" id="group-unsafe"></div>
+          </section>
+
+          <details class="more-tools" id="more-tools">
+            <summary>
+              <span>
+                <strong>更多工具</strong>
+                <small>清理明确的临时残留</small>
+              </span>
+              <span class="tool-count"><span id="cleanup-count">0</span> 项</span>
+            </summary>
+            <section class="group-card cleanup-group" data-group="cleanup">
+              <header class="group-heading">
+                <div>
+                  <span class="group-badge cleanup">⌁</span>
+                  <div>
+                    <h3>移入废纸篓</h3>
+                    <p>只包含明确的临时残留；默认不选择，也不会永久删除。</p>
+                  </div>
+                </div>
+                <button class="text-button group-select" type="button" data-group="cleanup">
+                  全选本组
+                </button>
+              </header>
+              <div class="item-list" id="group-cleanup"></div>
+              <div class="cleanup-tool-actions">
+                <button class="button button-trash" id="trash-selected" type="button" disabled>
+                  将已选临时项移入废纸篓
+                </button>
+              </div>
+            </section>
+          </details>
+        </div>
+      </section>
+
+      <section class="activity-panel" id="activity-panel" hidden>
+        <div>
+          <p class="panel-kicker">最近操作</p>
+          <h2 id="activity-title">—</h2>
+        </div>
+        <div class="activity-lines" id="activity-lines"></div>
+      </section>
+
+      <section class="problem-panel" id="problem-panel" hidden>
+        <h2>工作区需要检查</h2>
+        <ul id="problem-list"></ul>
+      </section>
+    </main>
+
+    <footer class="page-width footer">
+      <span>Froganize</span>
+      <p>所有判断与整理都只在这台 Mac 上完成。</p>
+    </footer>
+
+    <div class="action-dock" id="action-dock">
+      <div class="dock-selection">
+        <span class="selection-icon" aria-hidden="true">✓</span>
+        <div>
+          <span class="selection-label">本次准备收起</span>
+          <strong><span id="selection-count">0</span> 项</strong>
+        </div>
+      </div>
+      <div class="dock-actions">
+        <button class="button button-quiet" id="clear-selection" type="button">
+          清除选择
+        </button>
+        <button class="button button-danger-soft" id="undo" type="button">
+          撤销最近整理
+        </button>
+        <button class="button button-primary" id="archive-selected" type="button" disabled>
+          收起已选项目
+        </button>
+      </div>
+    </div>
+
+    <dialog class="confirm-dialog" id="confirm-dialog">
+      <form method="dialog">
+        <div class="dialog-brand">
+          <img src="/froganize-mascot.png" alt="" aria-hidden="true">
+          <p class="dialog-kicker">Froganize 请你确认</p>
+        </div>
+        <h2 id="dialog-title">收起已选项目？</h2>
+        <p id="dialog-message"></p>
+        <div class="dialog-list" id="dialog-list"></div>
+        <div class="dialog-actions">
+          <button class="button button-quiet" value="cancel">返回检查</button>
+          <button
+            class="button button-primary"
+            id="dialog-confirm"
+            value="confirm"
+          >
+            确认收起
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

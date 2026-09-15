@@ -1,0 +1,47 @@
+include .gitattributes
+include pyproject.toml
+include README*.md
+include LICENSE
+include BRAND.md
+include CHANGELOG.md
+include CODE_OF_CONDUCT.md
+include CONTRIBUTING.md
+include PRIVACY.md
+include SECURITY.md
+include SUPPORT.md
+include TASKS.md
+include THIRD_PARTY_NOTICES.md
+
+recursive-include .github *.md *.yml
+include assets/Froganize.icns
+include assets/froganize-app-icon.png
+include assets/README.md
+recursive-include demo *
+recursive-include docs *.md
+include scripts/DropNestLauncher.applescript
+include scripts/build_macos_distribution.sh
+include scripts/build_unified_macos_prototype.sh
+include scripts/create_local_codesign_identity.sh
+include scripts/verify_local_codesign_stability.sh
+include scripts/create_demo.py
+include scripts/froganize_app_entry.py
+include scripts/froganize_fileops_entry.py
+include scripts/install_macos_launcher.sh
+include scripts/launch_dropnest_web.sh
+include scripts/smoke_macos_bundle.py
+include scripts/smoke_unified_macos_bundle.py
+include scripts/check_public_repo.py
+include scripts/capture_native_preview.py
+recursive-include packaging *.py *.spec
+recursive-include src/dropnest/web_assets *.css *.html *.js *.png *.svg
+include swift/ScreenshotIntelligence/.gitignore
+include swift/ScreenshotIntelligence/README.md
+include swift/ScreenshotIntelligence/Package.swift
+include swift/ScreenshotIntelligence/Packaging/Info.plist
+recursive-include swift/ScreenshotIntelligence/Scripts *.sh
+recursive-include swift/ScreenshotIntelligence/Sources *.swift
+
+# Repository campaign media and generated demo runtime are intentionally not
+# distributed with the lightweight Python package.
+prune media
+prune .froganize-demo-runtime

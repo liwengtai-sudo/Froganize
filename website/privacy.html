@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Froganize 本地优先的隐私与文件安全承诺。">
+    <meta name="theme-color" content="#faf7ef">
+    <title>隐私承诺 · Froganize</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/froganize-mark.svg">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header">
+      <div class="page-width header-inner">
+        <a class="brand" href="./index.html" aria-label="返回 Froganize 官网">
+          <span class="brand-avatar" aria-hidden="true"><img src="./assets/froganize-mascot-128.png" alt="" width="128" height="128"></span>
+          <span class="brand-copy"><strong>Froganize</strong><small>Desktop organizer</small></span>
+        </a>
+        <nav class="site-nav" aria-label="主要导航">
+          <a href="./index.html#transformation">产品</a>
+          <a href="./index.html#workflow">怎么工作</a>
+          <a href="./index.html#safety">安全</a>
+          <a href="./changelog.html">进度</a>
+        </nav>
+        <span class="local-pill"><i aria-hidden="true"></i>macOS · 本地优先</span>
+        <details class="mobile-nav">
+          <summary aria-label="打开网站导航"><span></span><span></span><span></span></summary>
+          <nav aria-label="移动端导航"><a href="./index.html">返回首页</a><a href="./index.html#workflow">怎么工作</a><a href="./index.html#safety">安全原则</a><a href="./changelog.html">开发进度</a></nav>
+        </details>
+      </div>
+    </header>
+
+    <main class="subpage-main page-width" id="main-content">
+      <header class="document-hero">
+        <p class="eyebrow">Local First, in plain language</p>
+        <h1>隐私承诺</h1>
+        <p>Froganize 的默认答案很简单：能在你的 Mac 上完成的事，就不需要把数据交给另一台机器。</p>
+      </header>
+
+      <div class="document-layout">
+        <nav class="document-toc" aria-label="页面目录">
+          <strong>本页目录</strong>
+          <a href="#inspect">查看什么</a>
+          <a href="#store">保存什么</a>
+          <a href="#move">何时移动</a>
+          <a href="#network">网络与服务</a>
+          <a href="#control">你的控制权</a>
+        </nav>
+
+        <div class="document-content">
+          <section class="document-section" id="inspect">
+            <h2>Froganize 查看什么</h2>
+            <p>桌面评估只查看生成和验证整理计划所需的文件系统元数据：</p>
+            <ul>
+              <li>桌面最外层项目的名称、类型和路径；</li>
+              <li>修改时间，以及验证文件是否发生变化所需的大小、模式、设备和 inode 信息；</li>
+              <li>文件夹后代的目录项和元数据，用于把整个文件夹作为一个项目安全评估。</li>
+            </ul>
+            <div class="document-callout">普通桌面整理不读取、索引或上传文件内容，也不会跟随符号链接进入其他位置。</div>
+            <p>截图智能是独立的可选边界：默认关闭；只有用户明确开启后，匹配的系统截图图片才会发送给设置中选择的 AI Provider。其他 Desktop 文件不会被这一功能上传。</p>
+          </section>
+
+          <section class="document-section" id="store">
+            <h2>Froganize 保存什么</h2>
+            <p>选定工作区的 <code>.dropnest</code> 目录会保存本地配置与操作元数据：</p>
+            <ul>
+              <li><code>config.json</code>：工作区设置与随机工作区 ID；</li>
+              <li><code>history.jsonl</code>：原路径、目标路径、时间戳、项目类型和结果等撤销所需记录；</li>
+              <li><code>workspace.lock</code>：执行整理时可能短暂存在的协作锁信息。</li>
+            </ul>
+            <p>历史不包含文件内容，但路径和文件名本身也可能敏感，请不要把未经处理的历史文件公开。</p>
+            <p>截图智能还会在本机 Application Support 中保存授权目录和改名/撤销活动元数据；不保存截图图片或 API Key。正式应用的 Provider 密钥保存在 macOS Keychain。</p>
+          </section>
+
+          <section class="document-section" id="move">
+            <h2>文件何时才会移动</h2>
+            <p>打开或刷新本地页面只会评估。只有你主动勾选顶层项目、查看确认列表并再次确认，文件才会移动到本地 <code>Timeline/YYYY/YYYY-MM/</code>。</p>
+            <ul>
+              <li>文件夹始终整体移动，不拆散内部结构；</li>
+              <li>同名项目不会被覆盖；</li>
+              <li>最近一次成功整理可以撤销，但仍受冲突与历史完整性约束；</li>
+              <li>清理建议默认不勾选，只能移入 macOS 废纸篓，不会永久删除或清空废纸篓。</li>
+            </ul>
+          </section>
+
+          <section class="document-section" id="network">
+            <h2>网络、账号与分析</h2>
+            <p>当前 Unified Prototype 没有账号、广告、分析、遥测或云同步。普通桌面整理不发起远程请求；明确开启截图智能后，只有匹配的系统截图会发送给用户选择的 Provider。旧版可选网页界面只绑定 <code>127.0.0.1</code>，脚本、样式和图片都由本机提供。</p>
+            <p>浏览器、macOS、Finder 或安装工具可能有各自的日志和网络行为，它们由对应产品的政策管理，并不属于 Froganize 的远程服务。</p>
+          </section>
+
+          <section class="document-section" id="control">
+            <h2>控制权始终属于你</h2>
+            <p>退出主应用即可停止评估；暂停或退出菜单栏 Agent 即可停止截图处理。归档数据位于本地工作区，截图智能的非秘密状态位于本机 Application Support。删除 <code>.dropnest</code> 或截图活动前，请先确认自己是否仍需要相应撤销历史。</p>
+            <p>未来如果加入遥测、账号、普通文件内容分析、云服务或更广泛的网络能力，必须先经过明确的产品决策、文档更新和清楚的用户同意。</p>
+            <a class="document-back" href="./index.html#safety">← 返回安全原则</a>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-width footer-bottom"><span>Froganize · DropNest project</span><a href="./changelog.html">开发进度 →</a></div>
+    </footer>
+  </body>
+</html>

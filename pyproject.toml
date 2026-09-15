@@ -1,0 +1,108 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dropnest"
+version = "0.3.0"
+description = "Froganize safely turns Desktop clutter into a calm monthly timeline."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Froganize contributors" },
+]
+keywords = [
+  "cli",
+  "desktop-organizer",
+  "file-management",
+  "file-organizer",
+  "local-first",
+  "macos",
+  "privacy",
+  "productivity",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Environment :: MacOS X",
+  "Environment :: Web Environment",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
+  "Natural Language :: Chinese (Simplified)",
+  "Natural Language :: English",
+  "Operating System :: MacOS :: MacOS X",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Desktop Environment :: File Managers",
+  "Topic :: System :: Filesystems",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2.2",
+  "pytest>=8",
+]
+gui = [
+  "PySide6-Essentials>=6.8,<7",
+]
+media = [
+  "Pillow>=10.4",
+]
+packaging = [
+  "pyinstaller>=6.21,<7",
+  "PySide6-Essentials>=6.8,<7",
+]
+
+[project.scripts]
+dropnest = "dropnest.cli:main"
+froganize-fileops = "dropnest.agent_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dropnest = [
+  "web_assets/*.css",
+  "web_assets/*.html",
+  "web_assets/*.js",
+  "web_assets/*.png",
+  "web_assets/*.svg",
+]
+
+[tool.setuptools.data-files]
+"share/dropnest" = [
+  "BRAND.md",
+  "CHANGELOG.md",
+  "CODE_OF_CONDUCT.md",
+  "CONTRIBUTING.md",
+  "LICENSE",
+  "PRIVACY.md",
+  "README*.md",
+  "SECURITY.md",
+  "SUPPORT.md",
+  "TASKS.md",
+  "THIRD_PARTY_NOTICES.md",
+]
+"share/dropnest/assets" = [
+  "assets/Froganize.icns",
+  "assets/froganize-app-icon.png",
+]
+"share/dropnest/demo" = ["demo/*.md"]
+"share/dropnest/docs" = ["docs/*.md"]
+"share/dropnest/scripts" = [
+  "scripts/DropNestLauncher.applescript",
+  "scripts/install_macos_launcher.sh",
+  "scripts/launch_dropnest_web.sh",
+]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+pythonpath = ["."]
+testpaths = ["tests"]

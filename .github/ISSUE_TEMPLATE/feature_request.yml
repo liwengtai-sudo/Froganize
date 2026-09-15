@@ -1,0 +1,87 @@
+name: Feature request
+description: Propose a focused improvement to the local-first desktop workflow
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Froganize favors explicit control, local processing, reversible actions,
+        and minimal complexity. Explain the user problem before proposing an
+        implementation.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: I checked the roadmap and existing issues for a similar proposal.
+          required: true
+        - label: This request does not require sharing private files or paths.
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What is difficult today, and for whom?
+      placeholder: When I ..., I need ..., because ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed experience
+      description: Describe the smallest user-visible workflow that would solve the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include a workaround or a simpler option if one exists.
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary area
+      options:
+        - Assessment and recommendations
+        - Selection and confirmation
+        - Archive and conflict handling
+        - Undo and history
+        - Local dashboard
+        - macOS launcher and packaging
+        - Accessibility
+        - Documentation
+        - Contributor experience
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and privacy impact
+      description: Could this inspect more metadata, read contents, use the network, automate a move, or widen a path boundary?
+      placeholder: State "none expected" only after considering each point.
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: Success criteria
+      description: List observable acceptance criteria.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context or mockups
+      description: Redact filenames, paths, and personal information from all images.

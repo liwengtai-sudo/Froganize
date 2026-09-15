@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">蛙仔抱着整理日历</title><desc id="desc">Froganize 查看历史的矢量姿态</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="128" cy="229" rx="72" ry="11" fill="#173B79" opacity=".10"/>
+    <path d="M39 102C39 60 63 37 90 37c17 0 22 18 38 18s21-18 38-18c27 0 51 23 51 65v68c0 36-24 57-56 57H95c-32 0-56-21-56-57z" fill="#F7D86A"/>
+    <circle cx="86" cy="77" r="20" fill="#3156A3"/><circle cx="170" cy="77" r="20" fill="#3156A3"/>
+    <rect x="75" y="73" width="22" height="8" rx="4" fill="#F38B72"/><rect x="159" y="73" width="22" height="8" rx="4" fill="#F38B72"/>
+    <circle cx="122" cy="113" r="3" fill="#3156A3"/><circle cx="134" cy="113" r="3" fill="#3156A3"/>
+    <path d="M119 128q9 6 18 0" fill="none" stroke="#3156A3" stroke-width="4"/>
+    <path d="M65 173q8-17 22-8M191 173q-8-17-22-8" fill="none" stroke="#F7D86A" stroke-width="17"/>
+    <rect x="73" y="145" width="110" height="70" rx="13" fill="#FFFDF6" stroke="#3156A3" stroke-width="7"/>
+    <path d="M76 166h104" stroke="#3156A3" stroke-width="6"/><path d="M98 139v14M158 139v14" stroke="#F38B72" stroke-width="8"/>
+    <g fill="#4E78C7"><circle cx="96" cy="183" r="5"/><circle cx="128" cy="183" r="5"/><circle cx="160" cy="183" r="5"/><circle cx="96" cy="201" r="5"/><circle cx="128" cy="201" r="5"/><circle cx="160" cy="201" r="5"/></g>
+    <ellipse cx="84" cy="225" rx="24" ry="9" fill="#F7D86A"/><ellipse cx="172" cy="225" rx="24" ry="9" fill="#F7D86A"/>
+  </g>
+</svg>

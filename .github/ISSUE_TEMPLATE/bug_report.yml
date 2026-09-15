@@ -1,0 +1,118 @@
+name: Bug report
+description: Report a reproducible problem that does not contain sensitive security details
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Froganize.
+
+        Use synthetic files and redact personal paths, filenames, workspace IDs,
+        tokens, and history records. For a vulnerability, stop here and follow
+        [SECURITY.md](../../SECURITY.md) instead.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: I checked the existing issues for the same problem.
+          required: true
+        - label: This report does not disclose a security vulnerability or private data.
+          required: true
+        - label: I can reproduce this with synthetic files or without sharing user files.
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Froganize / DropNest version
+      description: Paste `dropnest --version` or provide the commit hash.
+      placeholder: Froganize 0.3.0
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and architecture
+      placeholder: macOS 15.x, Apple Silicon
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      description: Paste `python --version`.
+      placeholder: Python 3.13.x
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Desktop assessment
+        - Selection or confirmation
+        - Archive
+        - Undo
+        - Local dashboard
+        - macOS launcher
+        - Legacy Inbox CLI
+        - Installation or packaging
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and whether any synthetic item was moved, renamed, or left in place.
+      placeholder: A concise description with all personal paths replaced by placeholders.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Use a pytest temporary directory or a disposable synthetic sandbox.
+      placeholder: |
+        1. Create ...
+        2. Assess ...
+        3. Select ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Redacted output or screenshots
+      description: Optional. Do not include real filenames, absolute home paths, tokens, or history contents.
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Include recent changes or relevant filesystem details without personal data.
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I did not reproduce this against another person's files or a real personal Desktop.
+          required: true

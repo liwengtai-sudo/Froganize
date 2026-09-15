@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDisplayName</key>
+    <string>Froganize Screenshot Intelligence</string>
+    <key>CFBundleExecutable</key>
+    <string>ScreenshotRenamer</string>
+    <key>CFBundleIdentifier</key>
+    <string>app.froganize.Froganize.ScreenshotIntelligence</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>Froganize Screenshot Intelligence</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.3.0</string>
+    <key>CFBundleVersion</key>
+    <string>3</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.productivity</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>13.0</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSDesktopFolderUsageDescription</key>
+    <string>Froganize 仅在你选择“桌面”作为截图目录时，读取并重命名该目录中匹配的 macOS 系统截图；不会处理其他文件。</string>
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>Froganize 仅在你选择“文稿”中的目录作为截图目录时，读取并重命名其中匹配的 macOS 系统截图；不会处理其他文件。</string>
+    <key>NSDownloadsFolderUsageDescription</key>
+    <string>Froganize 仅在你选择“下载”中的目录作为截图目录时，读取并重命名其中匹配的 macOS 系统截图；不会处理其他文件。</string>
+</dict>
+</plist>

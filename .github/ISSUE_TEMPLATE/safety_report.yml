@@ -1,0 +1,95 @@
+name: Filesystem safety report
+description: Report a non-confidential no-overwrite, boundary, planning, history, or undo problem
+title: "[Safety]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form only when the report can be discussed publicly without
+        exploit details or private data. If an issue could enable unauthorized
+        access, path escape, overwrite, injection, or local action, use the
+        private process in [SECURITY.md](../../SECURITY.md).
+
+  - type: checkboxes
+    id: suitability
+    attributes:
+      label: Public-report suitability
+      options:
+        - label: This report contains no vulnerability details, personal paths, tokens, or real history data.
+          required: true
+        - label: The reproduction uses only temporary directories and synthetic files.
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: Froganize 0.3.0 or commit hash
+    validations:
+      required: true
+
+  - type: dropdown
+    id: invariant
+    attributes:
+      label: Safety property affected
+      options:
+        - Assessment must be read-only
+        - Explicit selection and confirmation
+        - Workspace or path boundary
+        - Symbolic-link handling
+        - Source-change detection
+        - No-overwrite conflict handling
+        - Whole-folder behavior
+        - History integrity
+        - Undo isolation
+        - Local dashboard authorization
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: setup
+    attributes:
+      label: Synthetic setup
+      description: Describe the temporary directory tree, relevant metadata, and exact preconditions.
+      placeholder: |
+        sandbox/
+        ├── Desktop/
+        │   └── example.txt
+        └── Workspace/
+            └── Timeline/
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and observed result
+      description: Explain the plan shown, action taken, filesystem result, and history result.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected safe behavior
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data_effect
+    attributes:
+      label: Did the synthetic reproduction change data unexpectedly?
+      options:
+        - "No"
+        - "Yes, but no item was overwritten or lost"
+        - "Yes, an overwrite or loss occurred in synthetic data"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Suggested mitigation
+      description: Optional. Describe a guard or regression test that may help.

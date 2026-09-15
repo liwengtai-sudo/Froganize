@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">蛙仔完成了整理</title><desc id="desc">Froganize 整理完成的矢量姿态</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="128" cy="228" rx="72" ry="11" fill="#173B79" opacity=".10"/>
+    <path d="M40 101C40 59 64 36 91 36c17 0 22 18 37 18s20-18 37-18c27 0 51 23 51 65v67c0 37-24 58-55 58H95c-31 0-55-21-55-58z" fill="#F7D86A"/>
+    <circle cx="87" cy="76" r="20" fill="#3156A3"/><circle cx="169" cy="76" r="20" fill="#3156A3"/>
+    <rect x="76" y="72" width="22" height="8" rx="4" fill="#F38B72"/><rect x="158" y="72" width="22" height="8" rx="4" fill="#F38B72"/>
+    <circle cx="122" cy="112" r="3" fill="#3156A3"/><circle cx="134" cy="112" r="3" fill="#3156A3"/>
+    <path d="M114 127q14 13 28 0" fill="none" stroke="#3156A3" stroke-width="4"/>
+    <path d="M66 166q13-18 29-4M190 166q-13-18-29-4" fill="none" stroke="#F7D86A" stroke-width="18"/>
+    <path d="M76 151h37l9-10h58v57H76z" fill="#3156A3"/><path d="M76 151h104v13H76z" fill="#4E78C7"/>
+    <path d="M48 73v-17M39 65H23M55 60l11-12M208 69V49M199 59h-17M215 55l12-13" stroke="#F1BD3F" stroke-width="6"/>
+    <ellipse cx="84" cy="224" rx="25" ry="10" fill="#F7D86A"/><ellipse cx="172" cy="224" rx="25" ry="10" fill="#F7D86A"/>
+  </g>
+</svg>
