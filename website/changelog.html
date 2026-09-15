@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Froganize 开发进度与版本变化记录。">
     <meta name="theme-color" content="#faf7ef">
+    <meta property="og:url" content="https://www.froganize.com/changelog.html">
     <title>开发进度 · Froganize</title>
+    <link rel="canonical" href="https://www.froganize.com/changelog.html">
     <link rel="icon" type="image/svg+xml" href="./assets/froganize-mark.svg">
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
     <link rel="stylesheet" href="./styles.css">
@@ -36,7 +38,7 @@
       <header class="document-hero">
         <p class="eyebrow">Build in public, honestly</p>
         <h1>开发进度</h1>
-        <p>这里记录已经完成的能力和仍在准备的发布工作。Developer Preview 不是已经上线的正式版本。</p>
+        <p>这里记录已经完成的能力和仍在准备的发布工作。源码公开测试版不是已经签名、公证的正式安装包。</p>
       </header>
 
       <div class="document-layout">
@@ -51,22 +53,23 @@
 
         <div class="document-content">
           <section class="document-section" id="now">
-            <h2>现在 · 0.3 Unified Prototype</h2>
-            <div class="document-callout">本机功能与界面已经可运行；公开安装包尚未完成签名、公证和另一台 Mac 的安装验证。</div>
+            <h2>现在 · 0.3 Source Beta</h2>
+            <div class="document-callout">完整 Python 与 Swift 源码已经合并并通过本地构建验证；公开安装包仍未完成 Developer ID 签名与 Apple 公证。</div>
             <h3>已经完成</h3>
             <ul>
-              <li>桌面最外层评估，以及最近使用、建议收起、无法安全判断三种结果。</li>
-              <li>默认不勾选、确认后移动、整文件夹处理和月度 Timeline。</li>
-              <li>同名不覆盖、操作历史和最近一次整理撤销。</li>
+              <li>一个“收好桌面”按钮，一次处理安全的桌面顶层项目。</li>
+              <li>文件按 <code>st_mtime</code>、文件夹按可读树中最新修改时间进入月度 Timeline。</li>
+              <li>同名不覆盖、文件夹不拆散、整理日历和最近未撤销批次的安全撤销。</li>
               <li>可主动开启的截图智能、确定性安全改名和改名撤销。</li>
               <li>主窗口、文件操作 helper 与菜单栏 Agent 组成的统一本地应用包。</li>
-              <li>原生 macOS 窗口、兼容网页界面和自动化安全测试。</li>
+              <li>原生 macOS 窗口、完整开源仓库材料和自动化安全测试。</li>
+              <li>源码已在 <a href="https://github.com/liwengtai-sudo/Froganize">GitHub 公开仓库</a>提供。</li>
             </ul>
             <h3>仍在准备</h3>
             <ul>
               <li>Developer ID 签名与 Apple 公证。</li>
               <li>另一台 Mac 的全新安装验证。</li>
-              <li>真实且稳定的官网、GitHub 与下载地址。</li>
+              <li>将 <code>froganize.com</code> 指向 GitHub Pages 并开启 HTTPS。</li>
             </ul>
           </section>
 
@@ -110,7 +113,7 @@
 
           <section class="document-section" id="next">
             <h2>下一步</h2>
-            <p>优先完成公开分发所需的签名、公证与干净机器验收，再确定域名和公开仓库地址。不会为了让按钮更早可点而跳过 macOS 安全验证。</p>
+            <p>先公开可审阅、可测试的源码与官网，再根据真实反馈决定是否投入 Developer ID 签名、Apple 公证和二进制分发。未公证的本地构建不会冒充正式安装包。</p>
             <a class="document-back" href="./index.html#release">← 返回开发预览</a>
           </section>
         </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Froganize 是一款本地优先的 macOS 桌面整理工具。先评估、再建议、由你确认，最后安全收进月度时间线；最近一次整理可以撤销。"
+      content="Froganize 是一款本地优先的 macOS 桌面整理工具。点一下收好桌面，安全项目会按最后修改年月进入 Timeline，并可从整理日历回看和撤销。"
     >
     <meta name="theme-color" content="#faf7ef">
     <meta name="color-scheme" content="light">
@@ -15,19 +15,25 @@
     <meta property="og:title" content="Froganize — 给桌面一点整理魔法">
     <meta
       property="og:description"
-      content="先看清，再建议；你确认后，才把桌面项目安全收进对应月份。"
+      content="点一下收好桌面：按最后修改年月归档，不覆盖、文件夹不拆散，还可以撤销。"
     >
+    <meta property="og:url" content="https://www.froganize.com/">
+    <meta property="og:image" content="https://www.froganize.com/assets/social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta property="og:image:alt" content="Froganize 蛙仔和桌面月度整理界面">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Froganize — 本地优先的 macOS 桌面整理工具">
     <meta
       name="twitter:description"
-      content="Inspect → Suggest → Confirm → Undo。整理决定始终在你手里。"
+      content="Open → Collect → Timeline → Undo。一次明确点击，把安全项目完整收好。"
     >
+    <meta name="twitter:image" content="https://www.froganize.com/assets/social-preview.png">
     <title>Froganize — 给桌面一点整理魔法</title>
+    <link rel="canonical" href="https://www.froganize.com/">
     <link rel="icon" type="image/svg+xml" href="./assets/froganize-mark.svg">
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
     <link rel="stylesheet" href="./styles.css">
-    <!-- Public domain pending: add canonical, og:url and an absolute og:image URL before launch. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -36,8 +42,10 @@
         "alternateName": "DropNest",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "macOS",
-        "softwareVersion": "0.3.0 Unified Prototype",
-        "description": "An intelligent, local-first macOS organizer with opt-in screenshot understanding and confirmed monthly archiving."
+        "softwareVersion": "0.3.0",
+        "url": "https://www.froganize.com/",
+        "image": "https://www.froganize.com/assets/social-preview.png",
+        "description": "A local-first macOS organizer that collects safe Desktop items into a monthly timeline with history and undo."
       }
     </script>
   </head>
@@ -52,18 +60,18 @@
           </span>
           <span class="brand-copy">
             <strong>Froganize</strong>
-            <small>先看清，再收好</small>
+            <small>点一下，收好桌面</small>
           </span>
         </a>
 
         <nav class="site-nav" aria-label="主要导航">
-          <a href="#workflow">怎么整理</a>
+          <a href="#workflow">一键整理</a>
           <a href="#product">真实界面</a>
           <a href="#safety">安全</a>
           <a href="#story">蛙仔</a>
         </nav>
 
-        <a class="header-download download-cta" href="#release">下载</a>
+        <a class="header-download download-cta" href="https://github.com/liwengtai-sudo/Froganize">获取源码</a>
 
         <details class="mobile-nav">
           <summary aria-label="打开网站导航">
@@ -72,11 +80,11 @@
             <span aria-hidden="true"></span>
           </summary>
           <nav aria-label="移动端导航">
-            <a href="#workflow">怎么整理</a>
+            <a href="#workflow">一键整理</a>
             <a href="#product">真实界面</a>
             <a href="#safety">安全原则</a>
             <a href="#story">认识蛙仔</a>
-            <a class="download-cta" href="#release">下载 Froganize</a>
+            <a class="download-cta" href="https://github.com/liwengtai-sudo/Froganize">获取 Froganize 源码</a>
           </nav>
         </details>
       </div>
@@ -88,18 +96,18 @@
           <p class="eyebrow">macOS Desktop Organizer</p>
           <h1>给桌面一点整理魔法。</h1>
           <p class="hero-lead">
-            Froganize 是一款本地优先的 Mac 桌面整理工具。它先评估哪些项目适合收起，
-            等你确认后，再按年份和月份安全整理。
+            Froganize 是一款本地优先的 Mac 桌面整理工具。打开它，点一下
+            “收好桌面”，安全的顶层文件和完整文件夹就会按最后修改年月进入 Timeline。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary download-cta" href="#release">下载 Froganize</a>
+            <a class="button button-primary download-cta" href="https://github.com/liwengtai-sudo/Froganize">获取 Froganize 源码</a>
             <a class="button button-quiet" href="#transformation">看看怎么整理</a>
           </div>
-          <p class="preview-note">Developer Preview · 公开下载准备中</p>
+          <p class="preview-note">Source Beta · 完整源码已在 GitHub 公开</p>
           <ul class="trust-list" aria-label="Froganize 的四个基础原则">
             <li>本地运行</li>
             <li>普通整理只读元数据</li>
-            <li>确认后移动</li>
+            <li>只在点击后移动</li>
             <li>可以撤销</li>
           </ul>
         </div>
@@ -126,8 +134,8 @@
               <h2>该留的留下，<br>该收的收好。</h2>
             </div>
             <p>
-              Froganize 只评估桌面最外层。没有选中的项目继续留在原处，
-              只有你点头的文件和完整文件夹才会进入 Timeline。
+              Froganize 只查看桌面最外层。点击“收好桌面”后，它会把本次计划中的
+              安全文件和完整文件夹一次收好；隐藏项、临时项和符号链接继续留在原处。
             </p>
           </header>
 
@@ -145,7 +153,7 @@
             </article>
 
             <div class="confirm-bridge" aria-hidden="true">
-              <span>你确认</span>
+              <span>点一下</span>
               <i>→</i>
             </div>
 
@@ -160,14 +168,14 @@
                 <li class="depth-two"><span class="tree-folder"></span>2026-06</li>
                 <li class="depth-three"><span class="tree-file"></span>report.pdf</li>
               </ul>
-              <p class="stays-note">Client Handoff 没有勾选，仍留在桌面。</p>
+              <p class="stays-note">~unfinished.tmp 属于临时项，会安全留在桌面并报告原因。</p>
             </article>
           </div>
 
-          <dl class="outcome-list" aria-label="一次评估的三个结果">
-            <div><dt>最近使用</dt><dd>7 天内修改过，默认保留。</dd></div>
-            <div><dt>建议收起</dt><dd>超过 7 个完整日未修改，等你选择。</dd></div>
-            <div><dt>无法安全判断</dt><dd>继续保留，并清楚说明原因。</dd></div>
+          <dl class="outcome-list" aria-label="一键整理的三个原则">
+            <div><dt>按修改年月</dt><dd>文件使用 <code>st_mtime</code>，文件夹使用可读树中最新时间。</dd></div>
+            <div><dt>文件夹不拆散</dt><dd>每个桌面顶层项目始终作为一个整体移动。</dd></div>
+            <div><dt>不安全就不动</dt><dd>被跳过的项目继续保留，并在结果中说明原因。</dd></div>
           </dl>
         </div>
       </section>
@@ -175,8 +183,8 @@
       <section class="workflow-section section-block" id="workflow">
         <div class="page-width">
           <header class="section-heading centered-heading compact-heading">
-            <p class="eyebrow">One calm workflow</p>
-            <h2>先看清，再收好。</h2>
+            <p class="eyebrow">One click, one safe batch</p>
+            <h2>打开，点一下，收好。</h2>
             <p>
               进入产品后，故事里的蛙仔变成清晰的矢量伙伴，
               用不同姿态告诉你现在处于哪一步。
@@ -187,30 +195,30 @@
             <li>
               <img class="workflow-mascot" src="./assets/froganize-idle.svg" alt="蛙仔抱着文件夹，准备查看桌面" width="256" height="256" loading="lazy" decoding="async">
               <span>01</span>
-              <p>Inspect</p>
-              <h3>看清</h3>
-              <small>只评估桌面最外层；文件夹始终作为一个整体。</small>
+              <p>Open</p>
+              <h3>打开</h3>
+              <small>打开只生成安全计划，不会自动移动或删除任何项目。</small>
             </li>
             <li>
               <img class="workflow-mascot" src="./assets/froganize-organizing.svg" alt="蛙仔举起文件夹魔法杖，给出整理建议" width="256" height="256" loading="lazy" decoding="async">
               <span>02</span>
-              <p>Suggest</p>
-              <h3>建议</h3>
-              <small>根据修改时间给出理由，评估本身不会移动任何东西。</small>
+              <p>Collect</p>
+              <h3>收好</h3>
+              <small>点击唯一主按钮，程序只执行屏幕上这一份经过校验的计划。</small>
             </li>
             <li>
               <img class="workflow-mascot" src="./assets/froganize-success.svg" alt="蛙仔完成确认过的整理" width="256" height="256" loading="lazy" decoding="async">
               <span>03</span>
-              <p>Confirm</p>
-              <h3>确认</h3>
-              <small>默认不勾选；只有你选择并再次确认后才整理。</small>
+              <p>Timeline</p>
+              <h3>按月收纳</h3>
+              <small>项目按最后修改时间进入 <code>Timeline/YYYY/YYYY-MM/</code>。</small>
             </li>
             <li>
               <img class="workflow-mascot" src="./assets/froganize-calendar.svg" alt="蛙仔抱着日历，回看整理记录" width="256" height="256" loading="lazy" decoding="async">
               <span>04</span>
-              <p>Undo</p>
-              <h3>回看</h3>
-              <small>在整理日历里查看去向；安全撤销时遇到冲突也绝不覆盖。</small>
+              <p>Calendar &amp; Undo</p>
+              <h3>回看与撤销</h3>
+              <small>在整理日历里查看每批去向，并安全撤销最近的未撤销批次。</small>
             </li>
           </ol>
         </div>
@@ -224,8 +232,8 @@
               <h2>打开以后，<br>一眼就会用。</h2>
             </div>
             <p>
-              检查、选择和确认都在同一个本地页面里完成。
-              没有账号，没有云端控制台，也没有藏起来的自动整理开关。
+              主界面只留一个“收好桌面”动作，侧栏用来回看整理日历和管理可选的截图智能。
+              没有账号，普通桌面整理也不需要 API Key 或网络。
             </p>
           </header>
 
@@ -236,34 +244,31 @@
             </div>
             <a
               class="product-shot-link"
-              href="./assets/dashboard-ui.png"
+              href="./assets/native-dashboard.png"
               target="_blank"
               rel="noopener"
-              aria-label="在新标签页查看 Froganize 界面原图"
+              aria-label="在新标签页查看 Froganize 当前原生界面原图"
             >
-              <picture>
-                <source media="(max-width: 640px)" srcset="./assets/dashboard-ui-mobile.png" width="390" height="844">
-                <img
-                  src="./assets/dashboard-ui.png"
-                  alt="Froganize 真实本地界面，列出最近使用、建议收起和无法安全判断的项目"
-                  width="1440"
-                  height="560"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </picture>
+              <img
+                src="./assets/native-dashboard.png"
+                alt="Froganize 当前原生界面，包含收好桌面、整理日历和截图智能三个入口"
+                width="2400"
+                height="1600"
+                loading="lazy"
+                decoding="async"
+              >
             </a>
             <figcaption>
-              <span>本机服务正常</span>
+              <span>当前原生界面</span>
               <strong>使用合成演示文件，不含真实桌面内容</strong>
-              <a href="./assets/dashboard-ui.png" target="_blank" rel="noopener">查看原图 ↗</a>
+              <a href="./assets/native-dashboard.png" target="_blank" rel="noopener">查看原图 ↗</a>
             </figcaption>
           </figure>
 
           <ul class="product-points" aria-label="本地界面的三个重点">
-            <li><strong>评估</strong><span>每个结果都说明理由</span></li>
-            <li><strong>选择</strong><span>每次都从未选中开始</span></li>
-            <li><strong>确认</strong><span>移动前再看一次清单</span></li>
+            <li><strong>一键收好</strong><span>不用在 Finder 里来回拖拽</span></li>
+            <li><strong>整理日历</strong><span>按日期回看批次和去向</span></li>
+            <li><strong>截图智能</strong><span>独立、默认关闭的可选功能</span></li>
           </ul>
         </div>
       </section>
@@ -285,7 +290,7 @@
 
           <div class="safety-copy">
             <p class="eyebrow">Local First, by design</p>
-            <h2>整理留在本机，<br>选择留给你。</h2>
+            <h2>整理留在本机，<br>动作由你发起。</h2>
             <p class="safety-lead">
               Froganize 少知道一点，也少替你决定一点。
               这是它值得信任的方式，不是藏在设置里的选项。
@@ -293,8 +298,8 @@
             <dl class="safety-list">
               <div><dt>普通整理完全本地</dt><dd>只读取名称、类型和修改时间等必要元数据，不读取或上传普通文件内容。</dd></div>
               <div><dt>截图智能由你开启</dt><dd>打开面板和保存设置不会联系 Provider；只有你主动测试连接，或明确同意并开启处理后，才会发起对应请求。仅后者会上传匹配的系统截图。</dd></div>
-              <div><dt>不自动移动，也不自动删除</dt><dd>刷新只做评估，真正改变前必须由你确认。</dd></div>
-              <div><dt>不覆盖，而且可以撤销</dt><dd>重名时安全改名，为最近一次成功整理保留退路。</dd></div>
+              <div><dt>不自动移动，也不自动删除</dt><dd>打开和刷新都只做只读规划，只有你点击“收好桌面”才会移动安全项目。</dd></div>
+              <div><dt>不覆盖，而且可以撤销</dt><dd>重名时安全改名，整理日历保留历史，并为最近未撤销批次保留退路。</dd></div>
             </dl>
             <a class="text-link" href="./privacy.html">阅读完整隐私承诺 →</a>
           </div>
@@ -371,10 +376,10 @@
                 >
               </figure>
               <div class="story-copy">
-                <h3>先看清，再建议</h3>
+                <h3>学会一次收好</h3>
                 <p>
-                  蛙仔学会先看修改时间：最近 7 天用过的继续留在眼前，
-                  更久没动的只提出建议。主人不点头，它就绝不挥动魔法杖。
+                  蛙仔学会先查看安全边界和最后修改时间。
+                  主人点一下魔法杖，它就把安全的顶层项目一次收好，不安全的继续留在原处。
                 </p>
               </div>
             </article>
@@ -395,7 +400,7 @@
               <div class="story-copy">
                 <h3>让每件东西都有去处</h3>
                 <p>
-                  确认过的项目进入按年月排列的 Timeline，仍然找得到，也可以撤销。
+                  收好的项目进入按年月排列的 Timeline，仍然找得到，也可以在整理日历中回看。
                   桌面不必空空如也，只需要重新留给此刻正在发生的事。
                 </p>
               </div>
@@ -406,10 +411,10 @@
             <img src="./assets/froganize-success.svg" alt="整理完成的矢量蛙仔" width="256" height="256" loading="lazy" decoding="async">
             <div>
               <p class="eyebrow">From story to product</p>
-              <p class="story-ending">故事里的魔法，在产品里叫作可控。</p>
+              <p class="story-ending">故事里的魔法，在产品里是一次安全的点击。</p>
               <p>
                 走进真实界面，蛙仔会换成更克制、更清晰的矢量形象。
-                看、收、回顾和撤销，每种姿态都对应一个真实动作。
+                打开、收好、回顾和撤销，每种姿态都对应一个真实动作。
               </p>
             </div>
           </div>
@@ -419,24 +424,25 @@
       <section class="release-section section-block" id="release">
         <div class="page-width release-layout">
           <div class="release-copy">
-            <p class="eyebrow">macOS Developer Preview</p>
-            <h2>下载还差最后几项安全准备。</h2>
+            <p class="eyebrow">Open-source macOS beta</p>
+            <h2>先把完整源码，认真地交给你。</h2>
           </div>
           <div class="release-detail">
             <p>
-              Froganize 已能在本机完成评估、确认整理和撤销。公开安装包仍需完成
-              Developer ID 签名、公证和另一台 Mac 的安装验证。
+              Froganize 已能在本机完成一键桌面整理、月度 Timeline、整理日历和安全撤销。
+              首个公开版本以可审阅、可测试、可从源码运行为目标，不把未公证的本地安装包伪装成正式发行版。
             </p>
             <ul class="release-status" aria-label="公开下载准备状态">
-              <li>✓ 核心整理流程</li>
-              <li>✓ 本地界面与安全测试</li>
-              <li class="pending">○ 签名、公证与公开下载</li>
+              <li>✓ Python 与 Swift 完整源码</li>
+              <li>✓ 本地界面、安全测试与可复现构建</li>
+              <li>✓ GitHub 公开仓库与唯一源码入口</li>
             </ul>
             <div class="release-actions">
-              <a class="button button-primary" href="./changelog.html">查看开发进度</a>
+              <a class="button button-primary download-cta" href="https://github.com/liwengtai-sudo/Froganize">在 GitHub 查看源码</a>
+              <a class="button button-quiet" href="./changelog.html">查看开发进度</a>
               <a class="button button-quiet" href="./privacy.html">阅读隐私承诺</a>
             </div>
-            <p class="release-honesty">GitHub 地址与公开下载地址确认后再开放，不使用占位链接。</p>
+            <p class="release-honesty">官网域名为 froganize.com，源码唯一公开地址是 github.com/liwengtai-sudo/Froganize。当前不提供未签名、未公证的安装包。</p>
           </div>
         </div>
       </section>
@@ -446,19 +452,20 @@
       <div class="page-width footer-main">
         <a class="brand footer-brand" href="#top">
           <img src="./assets/froganize-mark.svg" alt="" width="44" height="44">
-          <span><strong>Froganize</strong><small>先看清，再收好</small></span>
+          <span><strong>Froganize</strong><small>点一下，收好桌面</small></span>
         </a>
         <p>一款安静、可控、本地优先的 macOS 桌面整理工具。</p>
         <nav aria-label="页脚导航">
-          <a href="#workflow">怎么整理</a>
+          <a href="#workflow">一键整理</a>
           <a href="#story">蛙仔</a>
           <a href="./privacy.html">隐私</a>
           <a href="./changelog.html">进度</a>
+          <a href="https://github.com/liwengtai-sudo/Froganize">GitHub</a>
         </nav>
       </div>
       <div class="page-width footer-bottom">
         <span>Froganize · DropNest project</span>
-        <span>所有判断与整理都只在这台 Mac 上完成。</span>
+        <span>普通桌面整理只在这台 Mac 上完成。</span>
       </div>
     </footer>
   </body>

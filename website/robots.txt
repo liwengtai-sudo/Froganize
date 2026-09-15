@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-# Add a Sitemap line after the public domain is confirmed.
+Sitemap: https://www.froganize.com/sitemap.xml

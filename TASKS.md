@@ -210,7 +210,7 @@ before the first real file move is introduced.
 - [x] Build and inspect wheel and source distributions.
 - [x] Add an English landing README and a Simplified Chinese README.
 - [x] Add an image-led one-minute tutorial and synthetic Before/After demo.
-- [ ] Add the canonical GitHub repository URL after the remote exists.
+- [x] Add the canonical GitHub repository URL after the remote exists.
 - [ ] Add the maintainer's chosen public contact and Xiaohongshu profile.
 - [ ] Enable GitHub private vulnerability reporting.
 - [ ] Sign and notarize a distributable macOS application.
@@ -398,9 +398,27 @@ before the first real file move is introduced.
   nested component layout and strict deep signature.
 - [ ] Perform the final diff review and create a local release-preparation
   commit only after explicit authorization.
-- [ ] Replace or rewrite the one-commit local history so the public repository
-  starts without the historical maintainer path; requires explicit authorization.
-- [ ] Configure the GitHub remote, repository settings, and public links only
+- [x] Replace the one-commit local history with an authorized clean root commit
+  and keep the former history only in a private, non-publishable Git bundle.
+- [x] Configure the GitHub remote, repository settings, and public links only
   after explicit upload authorization.
 - [ ] Repeat install, tests, and screenshots from a fresh clone after the first
   public repository exists.
+
+## 26. Public website and custom-domain preparation
+
+- [x] Update the static website from the retired seven-day selection flow to
+  the current one-click Desktop collection mainline.
+- [x] Replace the retired dashboard image with the current native interface
+  captured using synthetic temporary files.
+- [x] Add canonical, Open Graph, Twitter Card, JSON-LD, robots, and sitemap
+  metadata for `https://www.froganize.com/`.
+- [x] Add a least-privilege GitHub Pages workflow that publishes only
+  `website/` and never local application bundles.
+- [x] Keep the source call to action honest and point it to the verified public
+  repository; do not publish an unsigned download link.
+- [ ] Confirm Alibaba Cloud domain-holder verification.
+- [x] Create and verify the GitHub repository, then replace the source call to
+  action with its canonical URL.
+- [ ] Verify the domain in GitHub, add the reviewed Alibaba Cloud DNS records,
+  and enable HTTPS only after the default Pages URL works.

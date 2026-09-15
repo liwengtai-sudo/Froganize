@@ -44,6 +44,11 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+Homepage = "https://www.froganize.com/"
+Repository = "https://github.com/liwengtai-sudo/Froganize"
+Issues = "https://github.com/liwengtai-sudo/Froganize/issues"
+
 [project.optional-dependencies]
 dev = [
   "build>=1.2.2",

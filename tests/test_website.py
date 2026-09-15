@@ -13,6 +13,7 @@ from urllib.parse import urlsplit
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 WEBSITE = PROJECT_ROOT / "website"
+REPOSITORY_URL = "https://github.com/liwengtai-sudo/Froganize"
 
 
 class WebsiteParser(HTMLParser):
@@ -113,18 +114,22 @@ def test_homepage_leads_with_product_value_before_brand_story() -> None:
     assert "蛙仔" in html
     assert "该留的留下" in html
     assert "该收的收好" in html
-    assert "Inspect" in html
-    assert "Suggest" in html
-    assert "Confirm" in html
-    assert "Undo" in html
-    assert "评估本身不会移动任何东西" in html
-    assert "GitHub 地址与公开下载地址确认后再开放" in html
+    assert "Open" in html
+    assert "Collect" in html
+    assert "Timeline" in html
+    assert "Calendar &amp; Undo" in html
+    assert "打开只生成安全计划" in html
+    assert REPOSITORY_URL in html
+    assert "7 天" not in html
+    assert "默认不勾选" not in html
     assert parser.story_scenes == 4
 
     assert re.search(r"听听.{0,24}故事", visible_text, flags=re.DOTALL) is None
 
     assert len(parser.download_links) >= 2
-    assert {link.get("href") for link in parser.download_links} == {"#release"}
+    assert {link.get("href") for link in parser.download_links} == {
+        REPOSITORY_URL
+    }
     assert html.index("download-cta") < html.index('id="transformation"')
 
     section_order = [
@@ -217,6 +222,10 @@ def test_site_pages_are_self_contained_and_all_links_resolve() -> None:
             )
 
         for attribute, reference in parser.references:
+            if reference.startswith("https://www.froganize.com/"):
+                continue
+            if reference == REPOSITORY_URL:
+                continue
             assert not reference.startswith(("http://", "https://", "//"))
 
             if reference.startswith("#"):
@@ -235,7 +244,7 @@ def test_site_pages_are_self_contained_and_all_links_resolve() -> None:
                 )
 
 
-def test_homepage_has_static_seo_metadata_without_fake_domain() -> None:
+def test_homepage_has_static_seo_metadata_for_public_domain() -> None:
     html, parser = parse_page()
     metadata = {
         item.get("property") or item.get("name"): item.get("content", "")
@@ -248,9 +257,12 @@ def test_homepage_has_static_seo_metadata_without_fake_domain() -> None:
     assert metadata["og:locale"] == "zh_CN"
     assert metadata["og:title"].startswith("Froganize")
     assert metadata["twitter:card"] == "summary_large_image"
-    assert 'rel="canonical"' not in html
-    assert 'property="og:url"' not in html
-    assert 'property="og:image"' not in html
+    assert '<link rel="canonical" href="https://www.froganize.com/">' in html
+    assert metadata["og:url"] == "https://www.froganize.com/"
+    assert metadata["og:image"] == (
+        "https://www.froganize.com/assets/social-preview.png"
+    )
+    assert metadata["twitter:image"] == metadata["og:image"]
     assert parser.script_types == ["application/ld+json"]
     assert len(parser.json_ld_payloads) == 1
 
@@ -258,11 +270,26 @@ def test_homepage_has_static_seo_metadata_without_fake_domain() -> None:
     assert structured_data["@type"] == "SoftwareApplication"
     assert structured_data["name"] == "Froganize"
     assert structured_data["operatingSystem"] == "macOS"
-    assert "url" not in structured_data
+    assert structured_data["url"] == "https://www.froganize.com/"
+    assert structured_data["image"] == metadata["og:image"]
     assert (WEBSITE / "robots.txt").read_text(encoding="utf-8").startswith(
         "User-agent: *\nAllow: /"
     )
-    assert not (WEBSITE / "sitemap.xml").exists()
+    assert "https://www.froganize.com/sitemap.xml" in (
+        WEBSITE / "robots.txt"
+    ).read_text(encoding="utf-8")
+
+    sitemap = ET.parse(WEBSITE / "sitemap.xml").getroot()
+    namespace = {"sitemap": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    locations = {
+        item.text
+        for item in sitemap.findall("sitemap:url/sitemap:loc", namespace)
+    }
+    assert locations == {
+        "https://www.froganize.com/",
+        "https://www.froganize.com/changelog.html",
+        "https://www.froganize.com/privacy.html",
+    }
 
 
 def test_images_are_accessible_responsive_and_right_sized() -> None:
@@ -276,8 +303,9 @@ def test_images_are_accessible_responsive_and_right_sized() -> None:
         assert image.get("height", "").isdigit()
 
     html = (WEBSITE / "index.html").read_text(encoding="utf-8")
-    assert "dashboard-ui-mobile.png" in html
-    assert html.count("srcset=") >= 7
+    assert "native-dashboard.png" in html
+    assert "dashboard-ui-mobile.png" not in html
+    assert html.count("srcset=") >= 6
     assert 'fetchpriority="high"' in html
     assert html.count('decoding="async"') >= 7
     assert html.count('loading="lazy"') >= 6
@@ -304,6 +332,10 @@ def test_images_are_accessible_responsive_and_right_sized() -> None:
     assert png_dimensions(WEBSITE / "assets" / "dashboard-ui-mobile.png") == (
         390,
         844,
+    )
+    assert png_dimensions(WEBSITE / "assets" / "native-dashboard.png") == (
+        2400,
+        1600,
     )
     assert png_dimensions(WEBSITE / "assets" / "social-preview.png") == (
         1280,
@@ -350,9 +382,26 @@ def test_release_and_privacy_pages_match_actual_project_state() -> None:
     privacy, _ = parse_page("privacy.html")
 
     assert "Developer ID 签名与 Apple 公证" in changelog
-    assert "真实且稳定的官网、GitHub 与下载地址" in changelog
-    assert "Developer Preview 不是已经上线的正式版本" in changelog
+    assert "一个“收好桌面”按钮" in changelog
+    assert "froganize.com" in changelog
+    assert "源码公开测试版不是已经签名、公证的正式安装包" in changelog
     assert "不读取、索引或上传文件内容" in privacy
-    assert "只有你主动勾选" in privacy
+    assert "只有你主动点击“收好桌面”" in privacy
+    assert "整理日历可以回看每个批次" in privacy
     assert "127.0.0.1" in privacy
     assert "不会永久删除或清空废纸篓" in privacy
+
+
+def test_github_pages_workflow_deploys_only_static_website() -> None:
+    workflow = (
+        PROJECT_ROOT / ".github" / "workflows" / "pages.yml"
+    ).read_text(encoding="utf-8")
+
+    assert "actions/configure-pages@v5" in workflow
+    assert "actions/upload-pages-artifact@v4" in workflow
+    assert "actions/deploy-pages@v4" in workflow
+    assert "path: website" in workflow
+    assert "pages: write" in workflow
+    assert "id-token: write" in workflow
+    assert "dist/" not in workflow
+    assert ".app" not in workflow

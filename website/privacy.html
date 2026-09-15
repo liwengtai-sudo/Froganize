@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Froganize 本地优先的隐私与文件安全承诺。">
     <meta name="theme-color" content="#faf7ef">
+    <meta property="og:url" content="https://www.froganize.com/privacy.html">
     <title>隐私承诺 · Froganize</title>
+    <link rel="canonical" href="https://www.froganize.com/privacy.html">
     <link rel="icon" type="image/svg+xml" href="./assets/froganize-mark.svg">
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
     <link rel="stylesheet" href="./styles.css">
@@ -52,7 +54,7 @@
         <div class="document-content">
           <section class="document-section" id="inspect">
             <h2>Froganize 查看什么</h2>
-            <p>桌面评估只查看生成和验证整理计划所需的文件系统元数据：</p>
+            <p>桌面整理计划只查看生成和验证操作所需的文件系统元数据：</p>
             <ul>
               <li>桌面最外层项目的名称、类型和路径；</li>
               <li>修改时间，以及验证文件是否发生变化所需的大小、模式、设备和 inode 信息；</li>
@@ -76,12 +78,12 @@
 
           <section class="document-section" id="move">
             <h2>文件何时才会移动</h2>
-            <p>打开或刷新本地页面只会评估。只有你主动勾选顶层项目、查看确认列表并再次确认，文件才会移动到本地 <code>Timeline/YYYY/YYYY-MM/</code>。</p>
+            <p>打开或刷新主界面只会生成只读计划。只有你主动点击“收好桌面”，当前计划中通过校验的顶层项目才会一次移动到本地 <code>Timeline/YYYY/YYYY-MM/</code>。</p>
             <ul>
               <li>文件夹始终整体移动，不拆散内部结构；</li>
               <li>同名项目不会被覆盖；</li>
-              <li>最近一次成功整理可以撤销，但仍受冲突与历史完整性约束；</li>
-              <li>清理建议默认不勾选，只能移入 macOS 废纸篓，不会永久删除或清空废纸篓。</li>
+              <li>整理日历可以回看每个批次；最近未撤销的成功批次可以撤销，但仍受冲突与历史完整性约束；</li>
+              <li>安全计划之外的项目继续留在原处；可选清理工具只能移入 macOS 废纸篓，不会永久删除或清空废纸篓。</li>
             </ul>
           </section>
 
@@ -93,7 +95,7 @@
 
           <section class="document-section" id="control">
             <h2>控制权始终属于你</h2>
-            <p>退出主应用即可停止评估；暂停或退出菜单栏 Agent 即可停止截图处理。归档数据位于本地工作区，截图智能的非秘密状态位于本机 Application Support。删除 <code>.dropnest</code> 或截图活动前，请先确认自己是否仍需要相应撤销历史。</p>
+            <p>退出主应用即可停止本次计划；暂停或退出菜单栏 Agent 即可停止截图处理。归档数据位于本地工作区，截图智能的非秘密状态位于本机 Application Support。删除 <code>.dropnest</code> 或截图活动前，请先确认自己是否仍需要相应撤销历史。</p>
             <p>未来如果加入遥测、账号、普通文件内容分析、云服务或更广泛的网络能力，必须先经过明确的产品决策、文档更新和清楚的用户同意。</p>
             <a class="document-back" href="./index.html#safety">← 返回安全原则</a>
           </section>

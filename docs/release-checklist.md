@@ -3,14 +3,16 @@
 Use this checklist for every public preview or release. It is intentionally
 strict because Froganize moves user files.
 
-The current repository is preparing a source-only macOS public beta. It has no
-configured Git remote or verified project contact. Developer ID signing and
+The current repository is preparing a source-only macOS public beta at
+`https://github.com/liwengtai-sudo/Froganize`. It has no verified project
+contact. Developer ID signing and
 notarization are not blockers for a source-only release because no public app
 binary is included or promised.
 
-A custom domain is not a release blocker. Start with a GitHub repository and
-GitHub Releases; reserve a domain only after the canonical public name, support
-contact, and download route are stable enough to justify a maintained website.
+The public website domain is `www.froganize.com`, but its GitHub Pages site,
+ownership verification, DNS records, and HTTPS status are not configured yet.
+The source repository must work at its default GitHub URL before DNS changes
+make the custom domain publicly reachable.
 
 ## 1. Release decision
 
@@ -24,14 +26,19 @@ contact, and download route are stable enough to justify a maintained website.
 
 ## 2. Repository and contact readiness
 
-- [ ] **BLOCKER:** configure and verify the canonical GitHub remote URL.
+- [x] Configure and verify the canonical GitHub remote URL.
 - [ ] **BLOCKER:** enable GitHub Issues and confirm all issue forms render.
 - [ ] **BLOCKER:** enable GitHub Private Vulnerability Reporting and submit a
       private test report visible only to maintainers.
 - [ ] **BLOCKER:** publish a monitored private conduct-reporting contact.
 - [ ] Decide whether to publish a general support contact or use Issues only.
 - [ ] Replace any temporary contact wording after the channels above exist.
-- [ ] Add the canonical repository URL to package metadata and public docs.
+- [x] Add the canonical repository URL to package metadata and public docs.
+- [x] Add website canonical, social-preview, robots, sitemap, and GitHub Pages
+      deployment metadata for `www.froganize.com`.
+- [ ] Confirm Alibaba Cloud domain-holder verification.
+- [ ] Verify `froganize.com` in GitHub Pages before adding serving records.
+- [ ] Configure reviewed apex and `www` DNS records and enforce HTTPS.
 - [ ] Configure repository description, topics, social preview, and license
       detection.
 - [ ] Confirm branch protection and required CI checks on the default branch.

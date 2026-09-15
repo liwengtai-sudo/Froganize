@@ -319,7 +319,7 @@ non-launching bundle structure smoke test.
 
 Implementation checkpoints completed:
 
-- full Python suite: 286 passed, including Screenshot Intelligence, organizer,
+- full Python suite: 287 passed, including Screenshot Intelligence, organizer,
   packaging, public-repository, and file-safety regressions;
 - Swift self-test: 55 isolated checks passed, including invalid provider
   response, non-retryable AI failure, retryable network failure, and missing

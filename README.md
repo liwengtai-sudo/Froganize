@@ -18,6 +18,8 @@ Timeline/2026/2026-07/report.pdf
 当前目标是 **v0.3.0 源码公开测试版**。仓库将首先提供可审阅、可测试、
 可从源码运行的版本；暂不提供或承诺经过签名、公证的 macOS 安装包。
 
+公开仓库：<https://github.com/liwengtai-sudo/Froganize>
+
 ![Froganize 当前原生界面，使用合成临时文件生成](media/github/native-dashboard.png)
 
 ## 主要功能
@@ -74,9 +76,11 @@ FroganizeWorkspace/
 
 ### 从源码安装
 
-下载或克隆仓库后，在项目根目录执行：
+克隆仓库后，在项目根目录执行：
 
 ```bash
+git clone https://github.com/liwengtai-sudo/Froganize.git
+cd Froganize
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
