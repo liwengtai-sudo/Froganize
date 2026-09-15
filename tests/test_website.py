@@ -400,6 +400,7 @@ def test_github_pages_workflow_deploys_only_static_website() -> None:
     assert "actions/configure-pages@v5" in workflow
     assert "actions/upload-pages-artifact@v4" in workflow
     assert "actions/deploy-pages@v4" in workflow
+    assert "enablement: true" in workflow
     assert "path: website" in workflow
     assert "pages: write" in workflow
     assert "id-token: write" in workflow
