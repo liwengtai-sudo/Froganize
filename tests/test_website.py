@@ -119,6 +119,10 @@ def test_homepage_leads_with_product_value_before_brand_story() -> None:
     assert "Timeline" in html
     assert "Calendar &amp; Undo" in html
     assert "打开只生成安全计划" in html
+    assert "让截图变成" in html
+    assert "AI 只负责理解" in html
+    assert "API Key 保存在 Keychain" in html
+    assert 'href="#intelligence"' in html
     assert REPOSITORY_URL in html
     assert "7 天" not in html
     assert "默认不勾选" not in html
@@ -136,6 +140,7 @@ def test_homepage_leads_with_product_value_before_brand_story() -> None:
         html.index('id="transformation"'),
         html.index('id="workflow"'),
         html.index('id="product"'),
+        html.index('id="intelligence"'),
         html.index('id="safety"'),
         html.index('id="story"'),
         html.index('id="release"'),

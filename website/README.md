@@ -58,7 +58,7 @@ https://github.com/liwengtai-sudo/Froganize
 
 ## 文件
 
-- `index.html`：产品首页和蛙仔故事；
+- `index.html`：产品首页、截图智能说明和蛙仔故事；
 - `changelog.html`：已完成功能和公开进度；
 - `privacy.html`：隐私、网络和文件安全边界；
 - `styles.css`：响应式设计系统；

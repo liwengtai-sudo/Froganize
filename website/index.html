@@ -67,6 +67,7 @@
         <nav class="site-nav" aria-label="主要导航">
           <a href="#workflow">一键整理</a>
           <a href="#product">真实界面</a>
+          <a href="#intelligence">截图智能</a>
           <a href="#safety">安全</a>
           <a href="#story">蛙仔</a>
         </nav>
@@ -82,6 +83,7 @@
           <nav aria-label="移动端导航">
             <a href="#workflow">一键整理</a>
             <a href="#product">真实界面</a>
+            <a href="#intelligence">截图智能</a>
             <a href="#safety">安全原则</a>
             <a href="#story">认识蛙仔</a>
             <a class="download-cta" href="https://github.com/liwengtai-sudo/Froganize">获取 Froganize 源码</a>
@@ -273,6 +275,101 @@
         </div>
       </section>
 
+      <section class="intelligence-section section-block" id="intelligence">
+        <div class="page-width">
+          <header class="section-heading split-heading intelligence-heading">
+            <div>
+              <p class="eyebrow">Optional Screenshot Intelligence</p>
+              <h2>让截图变成<br><span>一眼找得到的名字。</span></h2>
+            </div>
+            <p>
+              截图智能是一个独立、默认关闭的实验功能。它只处理你授权目录中
+              可安全识别的系统截图，请你自己配置兼容的 AI 接口，再把含糊的
+              时间名称换成有意义的标题。
+            </p>
+          </header>
+
+          <div class="rename-demo" aria-label="截图智能改名前后示意">
+            <article class="rename-file rename-before">
+              <span class="rename-kicker">改名前</span>
+              <div class="screenshot-thumbnail" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <i></i>
+              </div>
+              <p>Screenshot 2026-09-16 at 10.24.18.png</p>
+              <small>时间很准确，内容却看不出来</small>
+            </article>
+
+            <div class="rename-magic" aria-hidden="true">
+              <img src="./assets/froganize-organizing.svg" alt="" width="256" height="256" loading="lazy" decoding="async">
+              <span>AI 理解语义</span>
+              <i>→</i>
+            </div>
+
+            <article class="rename-file rename-after">
+              <span class="rename-kicker">改名后</span>
+              <div class="screenshot-thumbnail named" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <i></i>
+              </div>
+              <p>项目路线图-文件整理流程.png</p>
+              <small>原图不改内容，只安全更换文件名</small>
+            </article>
+          </div>
+
+          <ol class="intelligence-steps" aria-label="使用截图智能的四个步骤">
+            <li>
+              <span>01</span>
+              <div><h3>选择截图目录</h3><p>只授权一个明确目录，不扫描整台 Mac。</p></div>
+            </li>
+            <li>
+              <span>02</span>
+              <div><h3>连接你的 AI</h3><p>填写 HTTPS 接口、模型名和 API Key；密钥存入 macOS Keychain。</p></div>
+            </li>
+            <li>
+              <span>03</span>
+              <div><h3>明确开启</h3><p>接受上传说明后才会启用，也可只手动处理最新一张。</p></div>
+            </li>
+            <li>
+              <span>04</span>
+              <div><h3>回看或撤销</h3><p>成功改名会写入本地历史，需要时可撤销最近一次截图改名。</p></div>
+            </li>
+          </ol>
+
+          <div class="intelligence-boundary">
+            <div class="boundary-copy">
+              <p class="eyebrow">The important boundary</p>
+              <h3>AI 只负责理解，<br>不直接操作文件。</h3>
+              <p>
+                AI 只返回标题、摘要、类别、置信度和敏感标记。本地安全层再次确认
+                文件没有被修改，清理不安全字符、处理重名，并以不覆盖方式完成改名。
+              </p>
+            </div>
+
+            <dl class="boundary-list">
+              <div>
+                <dt>会发送什么</dt>
+                <dd>只有明确开启后，待处理的匹配截图才会发送到你配置的 AI Provider。</dd>
+              </div>
+              <div>
+                <dt>什么留在本机</dt>
+                <dd>API Key 保存在 Keychain；活动历史不记录截图图片或 API Key。</dd>
+              </div>
+              <div>
+                <dt>什么会被跳过</dt>
+                <dd>符号链接、不支持的图片、低置信度结果、分析后发生变化的文件和任何无法安全处理的项目。</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="intelligence-note">
+            <strong>基础桌面整理不需要 AI。</strong>
+            <span>截图智能目前是 Source Beta 中的可选实验能力，需要你自己提供兼容 OpenAI Chat Completions 格式的 HTTPS 接口。</span>
+            <a href="./privacy.html">查看完整隐私边界 →</a>
+          </div>
+        </div>
+      </section>
+
       <section class="safety-section section-block" id="safety">
         <div class="page-width safety-layout">
           <figure class="organizing-visual">
@@ -457,6 +554,7 @@
         <p>一款安静、可控、本地优先的 macOS 桌面整理工具。</p>
         <nav aria-label="页脚导航">
           <a href="#workflow">一键整理</a>
+          <a href="#intelligence">截图智能</a>
           <a href="#story">蛙仔</a>
           <a href="./privacy.html">隐私</a>
           <a href="./changelog.html">进度</a>
